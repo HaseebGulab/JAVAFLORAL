@@ -1,0 +1,64 @@
+﻿@model Floral_WebApp.Models.Contact
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_FloralLayoutPage.cshtml";
+}
+@Html.Raw(ViewBag.message)
+
+
+@using (Html.BeginForm())
+{
+
+    <!-- contact section -->
+
+    <section class="contact_section layout_padding">
+        <div class="container ">
+            <div class="heading_container justify-content-center">
+                <h2 class="">
+                    Contact Us
+                </h2>
+            </div>
+
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <form action="">
+                        <div>
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "Name" } })
+
+                        </div>
+                        <div>
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email" } })
+
+                        </div>
+                        <div>
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { placeholder = "Phone Number" } })
+
+                        </div>
+                        <div>
+                            @Html.ValidationMessageFor(model => model.Messagee, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Messagee, new { htmlAttributes = new { @class = "message-box", placeholder = "Message" } })
+
+
+                        </div>
+                        <div class="d-flex  mt-4 ">
+                            <input type="submit" value="SEND" class="btn btn-danger" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end contact section -->
+
+
+
+}
